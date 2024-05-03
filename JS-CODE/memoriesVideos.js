@@ -8,14 +8,4 @@ const memoriesVideos = [
     '../IMGS/MEMORIES-VIDEOS/MEMVIDEO0006.mp4'
 ];
 
-const memoriesVideos2 = [
-    './IMGS/MEMORIES-VIDEOS/MEMVIDEO0000.mp4',
-    './IMGS/MEMORIES-VIDEOS/MEMVIDEO0001.mp4',
-    './IMGS/MEMORIES-VIDEOS/MEMVIDEO0002.mp4',
-    './IMGS/MEMORIES-VIDEOS/MEMVIDEO0003.mp4',
-    './IMGS/MEMORIES-VIDEOS/MEMVIDEO0004.mp4',
-    './IMGS/MEMORIES-VIDEOS/MEMVIDEO0005.mp4',
-    './IMGS/MEMORIES-VIDEOS/MEMVIDEO0006.mp4'
-];
-
-export default [memoriesVideos, memoriesVideos2];
+export default memoriesVideos;
