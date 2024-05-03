@@ -72,10 +72,11 @@ h1#dailyImgTitle {
 div#footer {
     position: relative;
     width: 100%;
+    margin: 100px 0 0 0;
 }
 
 div#footerImgContainer {
-    position: relative; /* Ensure the container is positioned relative */
+    position: relative; 
 }
 
 img#footerImg {
@@ -84,12 +85,12 @@ img#footerImg {
     background-color: var(--textBackgroundColor);
     opacity: 0.5;
     display: block;
-    margin: 0 auto; /* Center the image horizontally */
+    margin: 0 auto; 
 }
 
 .footer-nav {
     position: absolute;
-    bottom: 10px; /* Adjust this value to move the nav buttons up/down */
+    bottom: 10px;
     left: 27%;
     bottom: 50%;
 }
@@ -124,7 +125,115 @@ div#mediaContainer img, div#mediaContainer video {
     width: 320px;
 }
 
+.memory-item img {
+    margin-bottom: -10px;
+    left: 0;
+    width: 660px;
+    height: auto;
+    background-color: var(--textBackgroundColor);
+    padding: 10px;
+}
 
+.memory-item h3 {
+    font-size: 35px;
+    color: var(--textColor);
+    margin-bottom: 20px;
+    background-color: var(--textBackgroundColor);
+    padding: 10px;
+    margin-top: 20px;
+    
+}
 
+.memory-item p {
+    position: relative;
+    position: absolute;
+    width: 330px;
+    margin-top: -0px;
+    margin-left: 680px;
+    font-size: 20px;
+    color: var(--textColor);
+    background-color: var(--textBackgroundColor);
+    padding: 10px;
+    word-wrap: break-word;
+}
 
+.memory-item video {
+    margin: 0;
+    left: 0;
+    width: 660px;
+    height: auto;
+    background-color: var(--textBackgroundColor);
+    padding: 10px;
+}
 
+img#workingOnPage {
+    width: 1000px;
+    margin: 70px 420px;
+}
+
+body#workingOnPageBody {
+    background-color: #fec3d7;
+}
+
+h2#contactTitle {
+    color: var(--textColor);
+    background-color:var(--textBackgroundColor);
+    padding: 15px;
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+div#outDivContact {
+    background-color: #a16ed1;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+div#firstDivContact {
+
+}
+
+div#inDivContact {
+    background-color: var(--textBackgroundColor);
+    padding: 20px;
+}
+
+h1#contactsTitle {
+    color: var(--textColor);
+
+}
+
+p#divContactText {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--textColor);
+    font-size: 20px;
+}
+
+img#contactImg {
+    position: fixed;
+    position: absolute;
+    width: 300px;
+    right: 600px;
+    bottom: 260px;
+    border-radius: 30px;
+}
+
+h2#abautUsTitle {
+    color: var(--textColor);
+    font-size: 38px;
+    margin: 15px;
+}
+
+p#abautUsText {
+    color: var(--textColor);
+    font-size: 20px;
+}
+
+div#abautUsDiv {
+    background-color: var(--textBackgroundColor);
+    padding: 30px;
+    border-radius: 30px;
+    margin: auto;
+    margin-top: 30px;
+    width: 800px;
+}

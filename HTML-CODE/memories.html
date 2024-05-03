@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For my beautiful GF</title>
+    <link rel="icon" type="image/x-icon" href="../IMGS/LOGOS/favicon.webp">
+    <link rel="stylesheet" href="../CSS-CODE/style.css">
+    <script type="module" src="../JS-CODE/script.js"></script>
+    <script type="module" src="../JS-CODE/memoriesImgs.js"></script>
+    <script type="module" src="../JS-CODE/memoriesVideos.js"></script>
+    <script type="module" src="../JS-CODE/memories.js"></script>
+    
+</head>
+<body id="wallpaper">
+    <div id="mainContainer">
+        <nav>
+            <ul id="topNav">
+                <img id="navLogo" src="../IMGS/LOGOS/navLogo.jpg" alt="">
+                <li id="navBtns"><a id="navBtn" href="../index.html">Home</a></li>
+                <li id="navBtns"><a id="navBtn" href="gallery.html">Gallery</a></li>
+                <li id="navBtns"><a id="navBtn" href="memories.html">Memories</a></li>
+                <li id="navBtns"><a id="navBtn" href="abautUs.html">Abaut Us</a></li>
+                <li id="navBtns"><a id="navBtn" href="addSrc.html">Add Img/Video</a></li>
+                <li id="navBtns"><a id="navBtn" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <section>
+          
+            <div id="memoriesContainer"></div>
+
+            <img id="fixedImgLeft" src="../IMGS/MAIN-PAGE/bfGfHug4.jpg" alt="">
+            <img id="fixedImgRight" src="../IMGS/MAIN-PAGE/bfGfHug5.jpg" alt="">
+
+        </section>
+
+            <footer>
+                <div id="footer" class="footer-container">
+                    <img id="footerImg" src="../IMGS/MAIN-PAGE/footerImg.jpg" alt="">
+                    <div class="footer-nav">
+                        <a href="../index.html">Home</a>
+                        <a href="gallery.html">Gallery</a>
+                        <a href="memories.html">Memories</a>
+                        <a href="aboutUs.html">About Us</a>
+                        <a href="addSrc.html">Add Img/Video</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+            </footer>
+    </div>
+
+    <script type="module">
+        // Import memories from memories.js properly
+        import memories from '../JS-CODE/memories.js';
+
+        // DOMContentLoaded event listener to initialize functions
+        document.addEventListener('DOMContentLoaded', function () {
+            displayAllMemories(); // Display all memories initially
+        });
+
+        // Function to display all memories
+        function displayAllMemories() {
+            const memoriesContainer = document.getElementById('memoriesContainer');
+            if (!memoriesContainer) return;
+
+            memoriesContainer.innerHTML = ''; // Clear previous content
+
+            // Loop through all memories
+            memories.forEach(memory => {
+                const memoryElement = createMemoryElement(memory);
+                memoriesContainer.appendChild(memoryElement);
+            });
+        }
+
+        // Function to create memory elements dynamically
+        function createMemoryElement(memory) {
+            const memoryElement = document.createElement('div');
+            memoryElement.classList.add('memory-item'); // Add memory-item class
+
+            const titleElement = document.createElement('h3');
+            titleElement.textContent = memory.title;
+            memoryElement.appendChild(titleElement);
+
+            const contentElement = document.createElement('p');
+            contentElement.textContent = memory.content;
+            memoryElement.appendChild(contentElement);
+
+            if (memory.memImg) {
+                const imgElement = document.createElement('img');
+                imgElement.src = memory.memImg;
+                imgElement.alt = 'Memory Image';
+                memoryElement.appendChild(imgElement);
+            }
+
+            if (memory.memVideo) {
+                const videoElement = document.createElement('video');
+                videoElement.src = memory.memVideo;
+                videoElement.controls = true;
+                videoElement.setAttribute('type', 'video/mp4');
+                memoryElement.appendChild(videoElement);
+            }
+
+            return memoryElement;
+        }
+    </script>
+</body>
+</html>

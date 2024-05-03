@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>For my beautiful GF</title>
+    <link rel="icon" type="image/x-icon" href="../IMGS/LOGOS/favicon.webp">
     <link rel="stylesheet" href="../CSS-CODE/style.css">
-    <script type="module" src="../JS-CODE/script.js"></script>
-    <script type="module" src="../JS-CODE/memoriesImgs.js"></script>
-    <script type="module" src="../JS-CODE/memoriesVideos.js"></script>
-    <script type="module" src="../JS-CODE/memories.js"></script>
 </head>
 <body id="wallpaper">
     <div id="mainContainer">
@@ -17,7 +14,7 @@
                 <li id="navBtns"><a id="navBtn" href="../index.html">Home</a></li>
                 <li id="navBtns"><a id="navBtn" href="gallery.html">Gallery</a></li>
                 <li id="navBtns"><a id="navBtn" href="memories.html">Memories</a></li>
-                <li id="navBtns"><a id="navBtn" href="abautUs.html">Abaut Us</a></li>
+                <li id="navBtns"><a id="navBtn" href="abautUs.html">About Us</a></li>
                 <li id="navBtns"><a id="navBtn" href="addSrc.html">Add Img/Video</a></li>
                 <li id="navBtns"><a id="navBtn" href="contact.html">Contact</a></li>
             </ul>
@@ -27,37 +24,111 @@
             <img id="mainImg" src="../IMGS/MAIN-PAGE/partnersHug.jpg" alt="">
             <hr id="imgLine">
 
-            <img id="fixedImgLeft" src="../IMGS/MAIN-PAGE/bfGfHug.jpg" alt="">
-            <img id="fixedImgRight" src="../IMGS/MAIN-PAGE/bfGfHug1.jpg" alt="">
+            <img id="fixedImgLeft" src="../IMGS/MAIN-PAGE/bfGfHug2.jpg" alt="">
+            <img id="fixedImgRight" src="../IMGS/MAIN-PAGE/bfGfHug3.jpg" alt="">
+            
+            <div id="checkboxes">
+                <label><input type="checkbox" id="showImages" checked> Show Images</label>
+                <label><input type="checkbox" id="showVideos" checked> Show Videos</label>
+                <label><input type="checkbox" id="showAll" checked> Show All</label>
+            </div>
 
-
-
-            <input type="checkbox" id="showImages" onchange="filterMedia()" />
-            <label for="showImages">Show Images</label>
-
-            <input type="checkbox" id="showVideos" onchange="filterMedia()" />
-            <label for="showVideos">Show Videos</label>
-
-            <input type="checkbox" id="showAll" onchange="filterMedia()" />
-            <label for="showAll">Show All</label>
-
+            <!-- Container for displaying media -->
             <div id="mediaContainer"></div>
-
             
         </section>
-            <footer>
-                <div id="footer" class="footer-container">
-                    <img id="footerImg" src="../IMGS/MAIN-PAGE/footerImg.jpg" alt="">
-                    <div class="footer-nav">
-                        <a href="../index.html">Home</a>
-                        <a href="gallery.html">Gallery</a>
-                        <a href="memories.html">Memories</a>
-                        <a href="aboutUs.html">About Us</a>
-                        <a href="addSrc.html">Add Img/Video</a>
-                        <a href="contact.html">Contact</a>
-                    </div>
+        <footer>
+            <div id="footer" class="footer-container">
+                <img id="footerImg" src="../IMGS/MAIN-PAGE/footerImg.jpg" alt="">
+                <div class="footer-nav">
+                    <a href="../index.html">Home</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="memories.html">Memories</a>
+                    <a href="aboutUs.html">About Us</a>
+                    <a href="addSrc.html">Add Img/Video</a>
+                    <a href="contact.html">Contact</a>
                 </div>
-            </footer>
+            </div>
+        </footer>
     </div>
+
+    <!-- JavaScript code -->
+    <script type="module">
+        // Import memoriesImgs and memoriesVideos properly
+        import memoriesImgs from '../JS-CODE/memoriesImgs.js';
+        import memoriesVideos from '../JS-CODE/memoriesVideos.js';
+
+        // Media data combining images and videos
+        const mediaData = [
+            ...memoriesImgs.map(imgSrc => ({ type: 'image', src: imgSrc })),
+            ...memoriesVideos.map(videoSrc => ({ type: 'video', src: videoSrc }))
+        ];
+
+        // Function to filter media based on checkboxes
+        function filterMedia() {
+            const showImages = document.getElementById('showImages').checked;
+            const showVideos = document.getElementById('showVideos').checked;
+            const showAll = document.getElementById('showAll').checked;
+
+            const mediaContainer = document.getElementById('mediaContainer');
+            mediaContainer.innerHTML = '';
+
+            mediaData.forEach(media => {
+                if ((showAll) ||
+                    (showImages && media.type === 'image') ||
+                    (showVideos && media.type === 'video')) {
+                    const mediaElement = createMediaElement(media);
+                    mediaContainer.appendChild(mediaElement);
+
+                    // Add click event listener to media element
+                    mediaElement.addEventListener('click', function () {
+                        toggleFullscreen(mediaElement);
+                    });
+                }
+            });
+        }
+
+        // Function to create media elements dynamically
+        function createMediaElement(media) {
+            let mediaElement;
+            if (media.type === 'image') {
+                mediaElement = document.createElement('img');
+                mediaElement.src = media.src;
+                mediaElement.alt = 'Image';
+            } else if (media.type === 'video') {
+                mediaElement = document.createElement('video');
+                mediaElement.src = media.src;
+                mediaElement.controls = true;
+                mediaElement.setAttribute('type', 'video/mp4');
+            }
+            return mediaElement;
+        }
+
+        // Function to toggle fullscreen mode for media elements
+        function toggleFullscreen(element) {
+            if (!document.fullscreenElement) {
+                element.requestFullscreen().catch(err => {
+                    console.error('Error attempting to enable full-screen mode:', err);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // DOMContentLoaded event listener to initialize functions
+        document.addEventListener('DOMContentLoaded', function () {
+            const showImages = document.getElementById('showImages');
+            const showVideos = document.getElementById('showVideos');
+            const showAll = document.getElementById('showAll');
+
+            if (showImages && showVideos && showAll) {
+                showImages.addEventListener('change', filterMedia);
+                showVideos.addEventListener('change', filterMedia);
+                showAll.addEventListener('change', filterMedia);
+            }
+
+            filterMedia(); // Initial call to filter media based on checkbox states
+        });
+    </script>
 </body>
 </html>
