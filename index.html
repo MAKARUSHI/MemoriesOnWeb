@@ -5,10 +5,6 @@
     <title>For my beautiful GF</title>
     <link rel="icon" type="image/x-icon" href="IMGS/LOGOS/favicon.webp">
     <link rel="stylesheet" href="CSS-CODE/style.css">
-    <!-- <script type="module" src="JS-CODE/script.js"></script> -->
-    <!-- <script type="module" src="JS-CODE/memoriesImgs.js"></script>
-    <script type="module" src="JS-CODE/memoriesVideos.js"></script>
-    <script type="module" src="JS-CODE/memories.js"></script> -->
 </head>
 <body id="wallpaper">
     <div id="mainContainer">
@@ -56,12 +52,10 @@
     </div>
 
     <script type="module">
-        // Import memoriesImgs and memoriesVideos properly
         import memoriesImgs2 from './JS-CODE/memoriesImgs.js';
         import memoriesVideos2 from './JS-CODE/memoriesVideos.js';
         import memories from './JS-CODE/memories.js';
 
-        // Function to display a random image
         function displayRandomImage() {
             const imageContainer = document.getElementById('dailyImg');
             if (!imageContainer) return;
