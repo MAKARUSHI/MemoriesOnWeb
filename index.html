@@ -66,9 +66,9 @@
             const imageContainer = document.getElementById('dailyImg');
             if (!imageContainer) return;
 
-            const randomImgIndex = Math.floor(Math.random() * memoriesImgs.length);
+            const randomImgIndex = Math.floor(Math.random() * memoriesImgs2.length);
             const randomImgElement = document.createElement('img');
-            randomImgElement.src = memoriesImgs[randomImgIndex];
+            randomImgElement.src = memoriesImgs2[randomImgIndex];
 
             imageContainer.innerHTML = '';
             imageContainer.appendChild(randomImgElement);
@@ -79,9 +79,9 @@
             const videoContainer = document.getElementById('dailyVideo');
             if (!videoContainer) return;
 
-            const randomVideoIndex = Math.floor(Math.random() * memoriesVideos.length);
+            const randomVideoIndex = Math.floor(Math.random() * memoriesVideos2.length);
             const randomVideoElement = document.createElement('video');
-            randomVideoElement.src = memoriesVideos[randomVideoIndex];
+            randomVideoElement.src = memoriesVideos2[randomVideoIndex];
             randomVideoElement.autoplay = true;
             randomVideoElement.controls = true;
 
