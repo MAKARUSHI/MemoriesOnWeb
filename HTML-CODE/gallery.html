@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For my beautiful GF</title>
+    <link rel="stylesheet" href="../CSS-CODE/style.css">
+    <script type="module" src="../JS-CODE/script.js"></script>
+    <script type="module" src="../JS-CODE/memoriesImgs.js"></script>
+    <script type="module" src="../JS-CODE/memoriesVideos.js"></script>
+    <script type="module" src="../JS-CODE/memories.js"></script>
+</head>
+<body id="wallpaper">
+    <div id="mainContainer">
+        <nav>
+            <ul id="topNav">
+                <img id="navLogo" src="../IMGS/LOGOS/navLogo.jpg" alt="">
+                <li id="navBtns"><a id="navBtn" href="../index.html">Home</a></li>
+                <li id="navBtns"><a id="navBtn" href="gallery.html">Gallery</a></li>
+                <li id="navBtns"><a id="navBtn" href="memories.html">Memories</a></li>
+                <li id="navBtns"><a id="navBtn" href="abautUs.html">Abaut Us</a></li>
+                <li id="navBtns"><a id="navBtn" href="addSrc.html">Add Img/Video</a></li>
+                <li id="navBtns"><a id="navBtn" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <section>
+            <hr id="imgLine">
+            <img id="mainImg" src="../IMGS/MAIN-PAGE/partnersHug.jpg" alt="">
+            <hr id="imgLine">
+
+            <img id="fixedImgLeft" src="../IMGS/MAIN-PAGE/bfGfHug.jpg" alt="">
+            <img id="fixedImgRight" src="../IMGS/MAIN-PAGE/bfGfHug1.jpg" alt="">
+
+
+
+            <input type="checkbox" id="showImages" onchange="filterMedia()" />
+            <label for="showImages">Show Images</label>
+
+            <input type="checkbox" id="showVideos" onchange="filterMedia()" />
+            <label for="showVideos">Show Videos</label>
+
+            <input type="checkbox" id="showAll" onchange="filterMedia()" />
+            <label for="showAll">Show All</label>
+
+            <div id="mediaContainer"></div>
+
+            
+        </section>
+            <footer>
+                <div id="footer" class="footer-container">
+                    <img id="footerImg" src="../IMGS/MAIN-PAGE/footerImg.jpg" alt="">
+                    <div class="footer-nav">
+                        <a href="../index.html">Home</a>
+                        <a href="gallery.html">Gallery</a>
+                        <a href="memories.html">Memories</a>
+                        <a href="aboutUs.html">About Us</a>
+                        <a href="addSrc.html">Add Img/Video</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+            </footer>
+    </div>
+</body>
+</html>
